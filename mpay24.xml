@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" version="2.5" group="vmpayment" method="install">
+	<name>VM Payment - mPAY24</name>
+	<author>zirnipa</author>
+	<creationDate>18-June-2017</creationDate>
+	<license>http://ec.europa.eu/idabc/eupl.html EUPL, Version 1.1</license>
+	<version>2.5</version>
+	<description><![CDATA[
+mPAY24 Payment Gateway Extension for VirtueMart<br><br>
+[DE] : Vergessen Sie bitte nicht, das Plugin zu <a href="index.php?option=com_plugins&view=plugins">veröffentlichen</a> und die Bezahlmethode im Virtuemart zu <a href="index.php?option=com_virtuemart&view=paymentmethod">erstellen und konfigurieren</a>.<br><br>
+[EN] : Please do not forget to <a href="index.php?option=com_plugins&view=plugins">publish</a> the plugin and to <a href="index.php?option=com_virtuemart&view=paymentmethod">create and configure</a> a payment method in the VirtueMart extension.
+	]]></description>
+	<languages folder="languages">
+		<language tag="en-GB" client="administrator">en-GB.plg_vmpayment_mpay24.ini</language>
+		<language tag="en-GB" client="administrator">en-GB.plg_vmpayment_mpay24.sys.ini</language>
+		<language tag="de-DE" client="administrator">de-DE.plg_vmpayment_mpay24.ini</language>
+		<language tag="de-DE" client="administrator">de-DE.plg_vmpayment_mpay24.sys.ini</language>
+	</languages>
+	<files>
+		<filename plugin="mpay24">mpay24.php</filename>
+		<filename>index.html</filename>
+		<folder>languages</folder>
+		<folder>API</folder>
+	</files>
+<vmconfig>
+<fields addpath="/administrator/components/com_virtuemart/fields"/>
+	<fields name="params">
+		<fieldset name="VMPAYMENT_MPAY24_CONF_SEC_ACCSETTINGS" label="VMPAYMENT_MPAY24_CONF_SEC_ACCSETTINGS">
+			<field name="mpay24_conf_modus" type ="radio" default="true" label="VMPAYMENT_MPAY24_CONF_MODUS" description="VMPAYMENT_MPAY24_CONF_MODUS_DESC">
+				<option value="false">VMPAYMENT_MPAY24_CONF_MODUS_OPT_1</option>
+				<option value="true">VMPAYMENT_MPAY24_CONF_MODUS_OPT_0</option>
+			</field>
+		<field type="text" name="mpay24_conf_merchantid" size="25" label="VMPAYMENT_MPAY24_CONF_MERCHANTID" desciption="VMPAYMENT_MPAY24_CONF_MERCHANTID_DESC"/>
+		<field type="password" name="mpay24_conf_password" size="25" label="VMPAYMENT_MPAY24_CONF_PASSWORD" desciption="VMPAYMENT_MPAY24_CONF_PASSWORD_DESC"/>
+		<field type="radio" name="mpay24_conf_debug" default="true" label="VMPAYMENT_MPAY24_CONF_DEBUG" description="VMPAYMENT_MPAY24_CONF_DEBUG_DESC">
+			<option value="false">COM_VIRTUEMART_NO</option>
+			<option value="true">COM_VIRTUEMART_YES</option>
+		</field>
+		<field type="spacer" default="" />
+		<field type="spacer" default="VMPAYMENT_MPAY24_CONF_SEC_MODULCONF" />
+		<field name="vm_conf_accepted_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_MPAY24_VMCONF_ACCEPTED_CURRENCY" description="VMPAYMENT_MPAY24_VMCONF_ACCEPTED_CURRENCY_DESC" />
+		<field name="vm_conf_accepted_countries" type="vmcountries" scope="com_virtuemart" default="" label="VMPAYMENT_MPAY24_VMCONF_ACCEPTED_COUNTRIES" description="VMPAYMENT_MPAY24_VMCONF_ACCEPTED_COUNTRIES_DESC" />
+    	<field name="vm_conf_min_amount" type="text" label="VMPAYMENT_MPAY24_VMCONF_MIN_AMOUNT" description="VMPAYMENT_MPAY24_VMCONF_MIN_AMOUNT_DESC" />
+    	<field name="vm_conf_max_amount" type="text" label="VMPAYMENT_MPAY24_VMCONF_MAX_AMOUNT" description="VMPAYMENT_MPAY24_VMCONF_MAX_AMOUNT_DESC" />
+		
+		<field name="mpay24_conf_status_pending" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_MPAY24_CONF_STATUS_PENDING" description="VMPAYMENT_MPAY24_CONF_STATUS_PENDING_DESC" />
+    	<field name="mpay24_conf_status_success" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_MPAY24_CONF_STATUS_SUCCESS" description="VMPAYMENT_MPAY24_CONF_STATUS_SUCCESS_DESC" />
+    	<field name="mpay24_conf_status_failed" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_MPAY24_CONF_STATUS_FAILED" description="VMPAYMENT_MPAY24_CONF_STATUS_FAILED_DESC" />
+    	<field name="mpay24_conf_status_credited" type="vmorderstate" scope="com_virtuemart" default="R" label="VMPAYMENT_MPAY24_CONF_STATUS_CREDITED" description="VMPAYMENT_MPAY24_CONF_STATUS_CREDITED_DESC" />
+		
+		<field type="spacer" default="" />
+		<field type="spacer" default="VMPAYMENT_MPAY24_CONF_SEC_PAYSYSTEMS" />
+		<field type="list" name="mpay24_conf_billingaddr" default="ReadOnly" label="VMPAYMENT_MPAY24_CONF_BILLINGADDR" description="VMPAYMENT_MPAY24_CONF_BILLINGADDR_DESC">
+			<option value="ReadOnly">VMPAYMENT_MPAY24_CONF_BILLINGADDR_OPT_0</option>
+			<option value="ReadWrite">VMPAYMENT_MPAY24_CONF_BILLINGADDR_OPT_1</option>
+		</field>
+		</fieldset>
+	</fields>
+</vmconfig>
+</extension>
