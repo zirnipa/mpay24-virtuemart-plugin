@@ -206,7 +206,7 @@ class plgVmPaymentMpay24 extends vmPSPlugin {
 					'Tid'			=> $orderNr,
 					'TemplateSet'	=> NULL,
 						'TemplateSet_CSSName'	=> NULL,
-						'TemplateSet_Language'	=> 'EN',
+						'TemplateSet_Language'	=> 'DE',
 					'ShoppingCart'	=> $mPAY24Cart,
 					'Amount'		=> $totalInPaymentCurrency,
 					'Currency'		=> $currency_code_3,
